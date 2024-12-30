@@ -31,7 +31,7 @@ const ProductManager = () => {
 
   const fetchProducts = async () => {
     try {
-      const { data } = await axios.get("http://localhost:3000/api/v1/process/product");
+      const { data } = await axios.get("https://squiirshop-server.vercel.app/api/v1/process/product");
       setProducts(data);
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -60,14 +60,14 @@ const ProductManager = () => {
       if (editMode) {
         // Update product
         await axios.put(
-          `http://localhost:3000/api/v1/process/editproduct:${formData.id}`,
+          `https://squiirshop-server.vercel.app/api/v1/process/editproduct:${formData.id}`,
           form
         );
         setMessage({ text: "Product updated successfully!", type: "success" });
       } else {
         // Add product
         await axios.post(
-          "http://localhost:3000/api/v1/process/product",
+          "https://squiirshop-server.vercel.app/api/v1/process/product",
           form
         );
         setMessage({ text: "Product added successfully!", type: "success" });
@@ -93,7 +93,7 @@ const ProductManager = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/api/v1/process/delproduct:${id}`);
+      await axios.delete(`https://squiirshop-server.vercel.app/api/v1/process/delproduct:${id}`);
       fetchProducts();
       setMessage({ text: "Product deleted successfully!", type: "success" });
     } catch (error) {
