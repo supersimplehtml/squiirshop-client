@@ -50,7 +50,7 @@ const RegisterForm = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/process/register",
+        "https://squiirshop-server.vercel.app/api/v1/process/register",
         form,
         {
           headers: {
