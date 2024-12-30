@@ -12,7 +12,7 @@ const CartPage = () => {
   useEffect(() => {
     // Fetch cart data from the backend
     axios
-      .get("http://localhost:3000/api/v1/process/cart")
+      .get("https://squiirshop-server.vercel.app/api/v1/process/cart")
       .then((response) => {
         setCartItems(response.data);
         setLoading(false);
@@ -25,7 +25,7 @@ const CartPage = () => {
 
   const handleRemoveItem = (productId) => {
     axios
-      .delete(`http://localhost:3000/api/v1/process/cart/${productId}`)
+      .delete(`https://squiirshop-server.vercel.app/api/v1/process/cart/${productId}`)
       .then(() => {
         setCartItems(cartItems.filter((item) => item.product._id !== productId));
       })
@@ -63,7 +63,7 @@ const CartPage = () => {
 
     // Sending cart data to backend for checkout process with the Bearer token in headers
     axios
-      .post("http://localhost:3000/api/v1/process/checkout", {
+      .post("https://squiirshop-server.vercel.app/api/v1/process/checkout", {
         headers: {
           Authorization: `Bearer ${token}`,  // Add token here
         },
