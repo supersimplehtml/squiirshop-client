@@ -13,7 +13,7 @@ const SellerOrders = () => {
                 setError('');
 
                 // Fetch orders from the backend
-                const response = await axios.get('http://localhost:3000/api/v1/process/seller-orders', {
+                const response = await axios.get('https://squiirshop-server.vercel.app/api/v1/process/seller-orders', {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`, // Assuming JWT token is stored in localStorage
                     },
