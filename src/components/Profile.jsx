@@ -24,7 +24,7 @@ const Profile = () => {
       }
 
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/process/protected', {
+        const response = await axios.get('https://squiirshop-server.vercel.app/api/v1/process/protected', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -74,7 +74,7 @@ const Profile = () => {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await axios.put('http://localhost:3000/api/v1/process/edit-profile', formData, {
+      const response = await axios.put('https://squiirshop-server.vercel.app/api/v1/process/edit-profile', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
