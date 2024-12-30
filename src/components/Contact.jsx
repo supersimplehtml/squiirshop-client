@@ -15,7 +15,7 @@ const Contact = () => {
     setStatus('sending');
     
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/process/contact', formData);
+      const response = await axios.post('https://squiirshop-server.vercel.app/api/v1/process/contact', formData);
       
       if (response.status === 200) {
         setStatus('success');
