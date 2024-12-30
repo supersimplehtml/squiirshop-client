@@ -21,7 +21,7 @@ const StartBusinessForm = () => {
     const token = localStorage.getItem('token'); // JWT token for authorization
 
     try {
-      const response = await axios.post('http://localhost:3000/api/v1/business', formData, {
+      const response = await axios.post('https://squiirshop-server.vercel.app/api/v1/business', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
