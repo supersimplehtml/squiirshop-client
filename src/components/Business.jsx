@@ -11,8 +11,8 @@ const BusinessProfile = () => {
     const fetchRecentData = async () => {
       try {
         // Assuming you have an endpoint to fetch recent products and comments
-        const productResponse = await axios.get('http://localhost:3000/api/v1/process/recentproducts'); // replace with your actual endpoint
-        const commentResponse = await axios.get('http://localhost:3000/api/v1/process/recentcomments'); // replace with your actual endpoint
+        const productResponse = await axios.get('https://squiirshop-server.vercel.app/api/v1/process/recentproducts'); // replace with your actual endpoint
+        const commentResponse = await axios.get('https://squiirshop-server.vercel.app/api/v1/process/recentcomments'); // replace with your actual endpoint
         
         setRecentProducts(productResponse.data);
         setRecentComments(commentResponse.data);
