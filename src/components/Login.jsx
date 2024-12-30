@@ -25,7 +25,7 @@ const Login = () => {
 
     try {
       // Make the API request to login
-      const response = await axios.post('http://localhost:3000/api/v1/process/login', {
+      const response = await axios.post('https://squiirshop-server.vercel.app/api/v1/process/login', {
         email,
         password,
       });
