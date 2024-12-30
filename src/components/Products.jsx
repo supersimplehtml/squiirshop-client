@@ -12,7 +12,7 @@ const ProductFeed = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/v1/process/products");
+        const response = await axios.get("https://squiirshop-server.vercel.app/api/v1/process/products");
         setProducts(response.data);
       } catch (err) {
         setError("Failed to fetch products. Please try again later.");
@@ -27,7 +27,7 @@ const ProductFeed = () => {
   // Handle Add to Cart
   const handleAddToCart = async (productId) => {
     try {
-      const response = await axios.post("http://localhost:3000/api/v1/process/addcart", {
+      const response = await axios.post("https://squiirshop-server.vercel.app/api/v1/process/addcart", {
         productId,
       });
       setCartMessage("Product added to cart successfully!");
