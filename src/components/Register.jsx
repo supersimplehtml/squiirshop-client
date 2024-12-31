@@ -47,8 +47,9 @@ const RegisterForm = () => {
     if (formData.profileImage) {
       form.append("profileImage", formData.profileImage);
     }
-console.log("hadi")
+
     try {
+      console.log(form)
       const response = await axios.post(
         "https://squiirshop-server.vercel.app/api/v1/process/register",
         form,
