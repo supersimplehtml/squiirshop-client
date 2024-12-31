@@ -6,7 +6,6 @@ const RegisterForm = () => {
     name: "",
     email: "",
     password: "",
-    
     address: "",
     phone: "",
     profileImage: null,
@@ -41,7 +40,6 @@ const RegisterForm = () => {
     form.append("name", formData.name);
     form.append("email", formData.email);
     form.append("password", formData.password);
-    
     form.append("address", formData.address);
     form.append("phone", formData.phone);
     if (formData.profileImage) {
@@ -49,7 +47,6 @@ const RegisterForm = () => {
     }
 
     try {
-      console.log(form)
       const response = await axios.post(
         "https://squiirshop-server.vercel.app/api/v1/process/register",
         form,
@@ -73,7 +70,7 @@ const RegisterForm = () => {
     } catch (err) {
       setLoading(false);
       if (err.response) {
-        setError(err.response.data.message);
+        setError(err.response.data.message || "Registration failed.");
       } else {
         setError("Something went wrong. Please try again later.");
       }
@@ -115,20 +112,20 @@ const RegisterForm = () => {
             className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-900 focus:outline-none"
           />
         </div>
-       <div>
+        <div>
           <label className="block text-sm font-semibold text-gray-600 mb-2">
-            Password:
+            Password
           </label>
-         <input
-           type="password"
-           name="password"
-           required
-           className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-900 focus:outline-none"
-           autoComplete="current-password"
-         />
-       </div>
-
-      
+          <input
+            type="password"
+            name="password"
+            value={formData.password} // Fixed issue here
+            onChange={handleChange} // Added onChange handler
+            required
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-900 focus:outline-none"
+            autoComplete="current-password"
+          />
+        </div>
         <div>
           <label className="block text-sm font-semibold text-gray-600 mb-2">
             Address
